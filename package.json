@@ -1,5 +1,5 @@
 {
-  "name": "factory-mlady"
+  "name": "factory-milady"
 , "description": "a factory library for node.js inspired by factory-lady"
 , "main": "./index"
 , "author": "Niels Clauwers"
@@ -7,14 +7,14 @@
 , "keywords": ["factory", "test", "bdd", "tdd", "fixture"]
 , "repository" : {
     "type" : "git"
-  , "url" : "http://github.com/skyke/factory-mlady.git"
+  , "url" : "http://github.com/skyke/factory-milady.git"
   }
 , "bugs" : {
-    "url" : "https://github.com/skyke/factory-mlady/issues"
+    "url" : "https://github.com/skyke/factory-milady/issues"
   }
 , "licenses" : [
     { "type" : "MIT"
-    , "url" : "http://raw.githubusercontent.com/skyke/factory-mlady/master/LICENSE"
+    , "url" : "http://raw.githubusercontent.com/skyke/factory-milady/master/LICENSE"
     }
   ]
 , "dependencies": {}

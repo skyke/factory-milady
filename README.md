@@ -1,19 +1,21 @@
 [![build status](https://secure.travis-ci.org/petejkim/factory-lady.png)](http://travis-ci.org/petejkim/factory-lady)
-# factory-lady.js
 
-Factory-lady is a factory library for [Node.js](http://nodejs.org/) / JavaScript inspired by [Factory\_girl](http://github.com/thoughtbot/factory_girl). It works asynchronously and supports lazy attributes as well as associations.
+# factory-milady.js
 
-It works as long as `new` keyword is used on the model to instantiate new objects and `save` method is used to persist objects. For example, [Mongoose](http://github.com/LearnBoost/mongoose) models follow such convention.
+Factory-mlady is a factory library for [Node.js](http://nodejs.org/) inspired
+ by [factory-lady](https://github.com/petejkim/factory-lady) by Peter Jihoon
+ Kim. It's a great module but in one of my projects we bumped into a few
+ issues which we did not really like and then factory-milady was born!
+
+ So for a full explanation please see [here](https://github.com/petejkim/factory-lady).
 
 ## Installation
 
 Node.js:
 
 ```
-npm install factory-lady
+npm install factory-milady
 ```
-
-To use Factory-lady in the browser or other JavaScript environments, just copy and include `factory-lady.js` under `lib` directory.
 
 ## Defining Factories
 
