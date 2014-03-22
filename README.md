@@ -4,18 +4,17 @@
 
 Factory-milady is a factory library for [Node.js](http://nodejs.org/) inspired
  by [factory-lady](https://github.com/petejkim/factory-lady) by Peter Jihoon
- Kim. The module of Peter is great but in one of my projects we
- bumped into a few issues which we did not really like and thus
- factory-milady was born! Maybe Peter had his reasons for these 'issues' but
- somehow they were *blocking* for us.
+ Kim. The module of Peter is great but it had a few issues which I wanted to change and thus
+ factory-milady was born!
 
- So for a factory-lady doc please see [here](https://github.com/petejkim/factory-lady).
+ So for the factory-lady doc please see [here](https://github.com/petejkim/factory-lady).
 
 ## Issues with factory-lady
 
 1. The library only works with models which support the `new` keyword and
 `save` method to persist the data. But what if you just wanted to have a
-literal object returned?
+normal object returned without the need to pass a model?
+You could pass an empty constructor but it would be nice to have the possibility to pass no model at all.
 
 2. The code isn't always following the node callback convention `callback
 (err, result)`. When an error occurs during the `save` method the code throws
@@ -26,7 +25,7 @@ The old `assoc` function will trigger a `save` and thus errors are possible.
 For this reason I changed the `assoc` function to not trigger a `save` but a `build`.
 
 **Note**: I only enforce callback convention for `Factory.create` because a
-`save` is triggered and errors can happen. `create` and `object` don't need this.
+`save` is triggered and errors can happen, `create` doesn't need this.
 
 ## Installation
 
@@ -94,10 +93,6 @@ Factory('post', function(err, post) {
 
 Factory.create('appointment', function(err, appointment) {
   // err will not be null because save is not supported
-});
-
-Factory.object('appointment', function(appointment) {
-  // appointment is an object literal
 });
 ```
 

@@ -77,6 +77,15 @@ describe('Factory', function() {
             });
         });
 
+        it('when no model is passed still returns a valid object', function(done) {
+            Factory.build('appointment', function(appointment) {
+                appointment.where.should.eql('Hasselt');
+                appointment.when.should.eql('tomorrow');
+                appointment.should.have.keys('where', 'when');
+                done();
+            });
+        });
+
     });
 
     describe('#create', function() {
@@ -119,29 +128,35 @@ describe('Factory', function() {
         });
     });
 
-    describe('#object', function() {
-        it('returns a literal object', function(done) {
-            Factory.object('job', function(job) {
-                (job instanceof Job).should.not.be.true;
-                job.title.should.eql('Engineer');
-                job.company.should.eql('Foobar Inc.');
-                job.should.have.keys('title', 'company');
-                done();
-            });
-        });
 
-        it('passing attributes as second argument', function(done) {
-            var newTitle = 'oliebollenkraam uitbater';
-            Factory.object('job', { title: newTitle }, function(job) {
-                (job instanceof Job).should.not.be.true;
-                job.title.should.eql(newTitle);
-                job.company.should.eql('Foobar Inc.');
-                job.should.have.keys('title', 'company');
-                done();
-            });
-        });
-
-    });
+//    describe('#object', function() {
+//        it('returns a literal object', function(done) {
+//            Factory.object('job', function(job) {
+//                var a = {};
+//                var c = function() {}
+//                var b = new c;
+//                console.log(a.constructor);
+//
+//                (job instanceof Job).should.not.be.true;
+//                (isObjLiteral(job)).should.not.be.true;
+//                job.title.should.eql('Engineer');
+//                job.company.should.eql('Foobar Inc.');
+//                job.should.have.keys('title', 'company');
+//                done();
+//            });
+//        });
+//
+//        it('passing attributes as second argument', function(done) {
+//            var newTitle = 'oliebollenkraam uitbater';
+//            Factory.object('job', { title: newTitle }, function(job) {
+//                (job instanceof Job).should.not.be.true;
+//                job.title.should.eql(newTitle);
+//                job.company.should.eql('Foobar Inc.');
+//                job.should.have.keys('title', 'company');
+//                done();
+//            });
+//        });
+//
+//    });
 
 });
-
