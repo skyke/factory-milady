@@ -9,7 +9,7 @@ Factory-milady is a factory library for [Node.js](http://nodejs.org/) inspired
  factory-milady was born! Maybe Peter had his reasons for these 'issues' but
  somehow they were *blocking* for us.
 
- So for a full explanation please see [here](https://github.com/petejkim/factory-lady).
+ So for a factory-lady doc please see [here](https://github.com/petejkim/factory-lady).
 
 ## Issues with factory-lady
 
