@@ -59,7 +59,7 @@ Factory.define('post', Post, {
   content  : 'Lorem ipsum dolor sit amet...'
 });
 
-// You can define without passing a model it's actually the same as passing function() {}
+// You can define without passing a model, it's actually the same as passing function() {}
 Factory.define('appointment', {
   what  : 'meeting',
   where : 'Brussels'
