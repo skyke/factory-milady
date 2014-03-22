@@ -20,14 +20,13 @@ literal object returned?
 2. The code isn't always following the node callback convention `callback
 (err, result)`. When an error occurs during the `save` method the code throws
  an exception instead of calling the callback function with the error.
-My guess is that the throw is implemented to support the inline `assoc`
+My guess is that the *throw* is implemented to support the inline `assoc`
 function.
-The `assoc` function will trigger a `save` and thus errors are possible.
-For this reason the `assoc` function will not trigger a `save` but will
-trigger a `build`.
+The old `assoc` function will trigger a `save` and thus errors are possible.
+For this reason I changed the `assoc` function to not trigger a `save` but a `build`.
 
-Note: I only enforce callback convention for `Factory.create` because a
-`save` is triggered. `Create` and `Object` don't need this.
+**Note**: I only enforce callback convention for `Factory.create` because a
+`save` is triggered and errors can happen. `create` and `object` don't need this.
 
 ## Installation
 
