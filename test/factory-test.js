@@ -10,7 +10,7 @@ describe('Factory', function() {
 
         Model.prototype.save = function(callback) {
             this.saveCalled = true;
-            callback();
+            callback(null, this);
         };
 
         Person = function() {};

@@ -1,2 +1,2 @@
-module.exports = require('./lib/factory-lady');
+module.exports = require('./lib/factory-milady');
 
