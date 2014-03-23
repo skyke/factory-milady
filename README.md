@@ -25,7 +25,7 @@ The old `assoc` function will trigger a `save` and thus errors are possible.
 For this reason I changed the `assoc` function to not trigger a `save` but a `build`.
 
 **Note**: I only enforce callback convention for `Factory.create` because a
-`save` is triggered and errors can happen, `create` doesn't need this.
+`save` is triggered and errors can happen, `build` and `object` don't need this.
 
 ## Installation
 
@@ -93,6 +93,10 @@ Factory('post', function(err, post) {
 
 Factory.create('appointment', function(err, appointment) {
   // err will not be null because save is not supported
+});
+
+Factory.object('post', function(post) {
+  // post is a new object but not an instance of Post
 });
 ```
 
