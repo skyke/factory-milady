@@ -107,7 +107,7 @@ If you want you can access the factories as promises.
 ```javascript
 Factory.create('appointment')
 .then(function(appointment) {
-  // post is a saved Post instance
+  // appointment is a saved Appointment instance
 },
 function(err) {
   // Error object
