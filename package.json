@@ -3,7 +3,7 @@
 , "description": "a factory library for node.js inspired by factory-lady"
 , "main": "./index"
 , "author": "Niels Clauwers"
-, "version": "0.1.0"
+, "version": "0.2.0"
 , "keywords": ["factory", "test", "bdd", "tdd", "fixture"]
 , "repository" : {
     "type" : "git"
@@ -17,7 +17,9 @@
     , "url" : "http://raw.githubusercontent.com/skyke/factory-milady/master/LICENSE"
     }
   ]
-, "dependencies": {}
+, "dependencies": {
+    "Q" : ">= 1.0.0"
+}
 , "devDependencies": {
     "mocha"        : ">= 1.18.2"
   , "should"       : ">= 3.1.4"

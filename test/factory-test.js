@@ -86,6 +86,27 @@ describe('Factory', function() {
             });
         });
 
+        describe('no callback', function() {
+            it('return resolved promise with object', function(done) {
+                Factory.build('appointment')
+                    .then(function(appointment) {
+                        appointment.where.should.eql('Hasselt');
+                        appointment.when.should.eql('tomorrow');
+                        appointment.should.have.keys('where', 'when');
+                        done();
+                    });
+            });
+
+            it('when passing attributes as second argument, return resolved promise', function(done) {
+                Factory.build('appointment', { where: 'Leuven'})
+                    .then(function(appointment) {
+                        appointment.where.should.eql('Leuven');
+                        appointment.when.should.eql('tomorrow');
+                        appointment.should.have.keys('where', 'when');
+                        done();
+                    });
+            });
+        });
     });
 
     describe('#create', function() {
@@ -126,6 +147,39 @@ describe('Factory', function() {
                 done();
             });
         });
+
+        describe('no callback', function() {
+            it('when save is not supported return rejected promise', function(done) {
+                Factory.create('appointment')
+                    .then(null, function(err) {
+                        (err instanceof Error).should.be.true;
+                        err.message.should.not.be.empty;
+                        done();
+                    });
+            });
+
+            it('return resolved promise with object', function(done) {
+                Factory.create('job')
+                    .then(function(job) {
+                        (job instanceof Job).should.be.true;
+                        job.title.should.eql('Engineer');
+                        job.company.should.eql('Foobar Inc.');
+                        job.saveCalled.should.be.true;
+                        done();
+                    }, null);
+            });
+
+            it('when passing attributes as second argument return resolved promise', function(done) {
+                Factory.create('job', { title: "Artist", company: "Bazqux Co." })
+                .then(function(job) {
+                    (job instanceof Job).should.be.true;
+                    job.title.should.eql('Artist');
+                    job.company.should.eql('Bazqux Co.');
+                    job.saveCalled.should.be.true;
+                    done();
+                }, null);
+            });
+        });
     });
 
 
@@ -148,6 +202,31 @@ describe('Factory', function() {
                 job.company.should.eql('Foobar Inc.');
                 job.should.have.keys('title', 'company');
                 done();
+            });
+        });
+
+        describe('no callback', function() {
+            it('return resolved promise with object', function(done) {
+                Factory.object('job')
+                .then(function(job) {
+                    (job instanceof Job).should.not.be.true;
+                    job.title.should.eql('Engineer');
+                    job.company.should.eql('Foobar Inc.');
+                    job.should.have.keys('title', 'company');
+                    done();
+                }, null);
+            });
+
+            it('when passing attributes as second argument, return resolved promise', function(done) {
+                var newTitle = 'oliebollenkraam uitbater';
+                Factory.object('job', { title: newTitle })
+                .then(function(job) {
+                    (job instanceof Job).should.not.be.true;
+                    job.title.should.eql(newTitle);
+                    job.company.should.eql('Foobar Inc.');
+                    job.should.have.keys('title', 'company');
+                    done();
+                }, null);
             });
         });
 

@@ -100,6 +100,28 @@ Factory.object('post', function(post) {
 });
 ```
 
+## Promise support
+
+If you want you can access the factories as promises.
+
+```javascript
+Factory.create('appointment')
+.then(function(appointment) {
+  // post is a saved Post instance
+},
+function(err) {
+  // Error object
+});
+
+Factory.build('post', { title: 'Foo', content: 'Bar' })
+.then(function(post) {
+  // build a post and override title and content
+},
+function(err) {
+  // Error object
+});
+```
+
 ## License
 
 Copyright (c) 2014 Niels Clauwers. This software is licensed under the [MIT
