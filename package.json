@@ -3,7 +3,7 @@
 , "description": "a factory library for node.js inspired by factory-lady"
 , "main": "./index"
 , "author": "Niels Clauwers"
-, "version": "0.2.0"
+, "version": "0.2.1"
 , "keywords": ["factory", "test", "bdd", "tdd", "fixture"]
 , "repository" : {
     "type" : "git"
@@ -18,7 +18,8 @@
     }
   ]
 , "dependencies": {
-    "Q" : ">= 1.0.0"
+    "Q" : ">= 1.0.0",
+    "lodash": ">= 2.4.1"
 }
 , "devDependencies": {
     "mocha"        : ">= 1.18.2"
